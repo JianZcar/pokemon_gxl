@@ -16,6 +16,9 @@ class Trainer(BaseModel):
     birthdate = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
+    trainer_id = models.IntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -59,6 +62,8 @@ class PokemonCard(BaseModel):
     release_date = models.DateField(null=True, blank=True)
     evolution_stage = models.CharField(max_length=255, null=True, blank=True)
     abilities = models.CharField(max_length=255, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -67,3 +72,7 @@ class PokemonCard(BaseModel):
 class Collection(BaseModel):
     card = models.ForeignKey(PokemonCard, on_delete=models.CASCADE, null=True, blank=True)
     trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE, null=True, blank=True)
+    col_id = models.IntegerField(null=True, blank=True)
+    collection_date = models.DateField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    updated_at = models.DateTimeField(auto_now=True)
