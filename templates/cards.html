@@ -1,21 +1,6 @@
+{% extends 'base.html' %}
 {% load static %}
-{% extends base.html %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta 
-            name="viewport" 
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link rel = "stylesheet" href = "{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
-    <title>Pokemon | Pokemon Card</title>
-</head>
-<body>
-    <!--NAVBAR-->
-    {% include 'includes/nav-bar.html' %}
+{% block content %}
     <main>
         <!--CARDS-->
         <section class="cards-container">
@@ -25,8 +10,7 @@
                     <div class="card-type" id="{{ card.card_type.lower }}">
                         <div class="card-image" id="{{ card.card_type.lower }}-img">
                             <!--Image-->
-                            <img
-                                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ card.card_number|stringformat:"03d" }}.png" alt="{{ card.name }}" />
+                            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ card.card_number|stringformat:"03d" }}.png" alt="{{ card.name }}"
                             />
                         </div>
                         <div class="card-name">
@@ -69,6 +53,4 @@
             {% endfor %}
         </section>
     </main>
-    {% include 'includes/footer.html' %}
-</body>
-</html>
+{% endblock content %}
