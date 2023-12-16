@@ -10,20 +10,27 @@
     <link rel = "stylesheet" href = "{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
-    <title>{% block title %} Cardquest Master {% endblock %}</title>
+    <title>Pokemon | Trainers</title>
   </head>
   <body>
     <!--NAVBAR-->
     {% include 'includes/nav-bar.html' %}
 
-    <!--CONTENT-->
     <main>
-      {% block content %}
-
-      {% endblock%}
+      <!--Trainers-->
+      <section class="trainers-container">
+          <table class="styled-table">
+              {% for trainer in trainers %}<tr>
+            <tr>
+            <td>{{ trainer.name }}</td>
+            <td>{{ trainer.birthdate }}</td>
+            <td>{{ trainer.location }}</td>
+            <td>{{ trainer.email }}</td>
+          </tr>
+              {% endfor %}
+          </table>
+      </section>
     </main>
-
-
-{% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
   </body>
 </html>

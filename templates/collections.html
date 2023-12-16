@@ -10,20 +10,21 @@
     <link rel = "stylesheet" href = "{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
-    <title>{% block title %} Cardquest Master {% endblock %}</title>
+    <title>Pokemon | Collection</title>
   </head>
   <body>
     <!--NAVBAR-->
     {% include 'includes/nav-bar.html' %}
 
-    <!--CONTENT-->
     <main>
-      {% block content %}
-
-      {% endblock%}
+      <!--Collections-->
+      <section class="trainers-container">
+          <table class="styled-table">
+              
+          </table>
+      </section>
     </main>
 
-
-{% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
   </body>
 </html>

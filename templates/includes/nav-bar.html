@@ -1,0 +1,8 @@
+{% load static %}
+<section class="navbar">
+    <a href="{% url 'home' %}" class="btn {% if 'home' == request.resolver_match.url_name %}active{% endif %}"> Home </a>
+    <a href="{% url 'trainers' %}" class="btn {% if 'trainers' == request.resolver_match.url_name %}active{% endif %}"> Trainer </a>
+    <a href="{% url 'cards' %}" class="btn {% if 'cards' == request.resolver_match.url_name %}active{% endif %}"> Pokemon Cards </a>
+    <a href="{% url 'collections' %}" class="btn {% if 'collections' == request.resolver_match.url_name %}active{% endif %}"> Collection </a>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

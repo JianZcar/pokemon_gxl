@@ -1,0 +1,74 @@
+{% load static %}
+{% extends base.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta 
+            name="viewport" 
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel = "stylesheet" href = "{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <title>Pokemon | Pokemon Card</title>
+</head>
+<body>
+    <!--NAVBAR-->
+    {% include 'includes/nav-bar.html' %}
+    <main>
+        <!--CARDS-->
+        <section class="cards-container">
+            {% for card in cards %}
+            <div class="card-box">
+                <div class="card">
+                    <div class="card-type" id="{{ card.card_type.lower }}">
+                        <div class="card-image" id="{{ card.card_type.lower }}-img">
+                            <!--Image-->
+                            <img
+                                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ card.card_number|stringformat:"03d" }}.png" alt="{{ card.name }}" />
+                            />
+                        </div>
+                        <div class="card-name">
+                            <h2 class="sbs">{{ card.name }}</h2>
+                            <h2 class="sbs" id="card-number">{{ card.card_number}}</h2>
+                            <hr />
+                        </div>
+                        <div class="card-rarity">
+                            <h3 class="rarity">{{ card.rarity }}</h3>
+                            <h3 class="rarity" id="rare-text">Rare</h3>
+                        </div>
+                        <table class="card-stats">
+                            <tbody>
+                            <tr>
+                                <th>HP:</th>
+                                <td>{{ card.hp }}</td>
+                            </tr>
+                            <tr>
+                                <th>Card Type:</th>
+                                <td>{{ card.card_type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Attack:</th>
+                                <td>{{ card.card_type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Weakness:</th>
+                                <td>{{ card.weakness }}</td>
+                            </tr>
+                            <tr>
+                                <th>Abilities:</th>
+                                <td>{{ card.abilities }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+    {% include 'includes/footer.html' %}
+</body>
+</html>

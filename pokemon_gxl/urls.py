@@ -19,8 +19,12 @@ from django.urls import path
 from cardquest.views import HomePageView
 from django.conf import settings
 from django.conf.urls.static import static
+from cardquest import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView.as_view(), name='home'),
+    path('trainers/', views.trainers, name='trainers'),
+    path('cards/', views.cards, name='cards'),
+    path('collections/', views.collections, name='collections'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
