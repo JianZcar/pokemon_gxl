@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Trainer{% endblock title %}
 {% block content %}
     <main>
         <!--Trainers-->
+        <a href="{% url 'trainer_add' %}" class="btn btn-outline-primary">Add New Trainer</a><br>
         <section class="trainers-container">
             <table class="styled-table">
-                {% for trainer in trainers %}<tr>
+                {% for trainer in page_obj %}
                     <tr>
                         <td>{{ trainer.name }}</td>
                         <td>{{ trainer.birthdate }}</td>
                         <td>{{ trainer.location }}</td>
                         <td>{{ trainer.email }}</td>
+                        <td>
+                            <a href="trainer_list/{{ object.id }}">Edit</a> |
+                            <a href="trainer_list/{{ object.id }}">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>
         </section>
+        <div>
+            {% include 'includes/pagination.html' with page_obj=page_obj %}
+        </div>
     </main>
 {% endblock content %}
