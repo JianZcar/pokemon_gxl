@@ -14,8 +14,8 @@
                         <td>{{ trainer.location }}</td>
                         <td>{{ trainer.email }}</td>
                         <td>
-                            <a href="trainer_list/{{ object.id }}">Edit</a> |
-                            <a href="trainer_list/{{ object.id }}">Delete</a>
+                            <a href="{% url 'trainer_edit' id=trainer.id %}">Edit</a> |
+                            <a href="{% url 'trainer_delete' id=trainer.id %}">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}

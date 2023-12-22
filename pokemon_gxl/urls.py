@@ -19,6 +19,7 @@ from django.urls import path
 from cardquest.views import home_page_view, trainers_view, cards_view, collections_view, trainers_create_view
 from django.conf import settings
 from django.conf.urls.static import static
+from cardquest.views import trainer_edit_view, trainer_delete_view
 from cardquest import views
 
 
@@ -28,5 +29,7 @@ urlpatterns = [
     path('trainers/', trainers_view, name='trainers'),
     path('cards/', cards_view, name='cards'),
     path('collections/', collections_view, name='collections'),
-    path('trainer_list/add', trainers_create_view, name='trainer_add')
+    path('trainer_list/add', trainers_create_view, name='trainer_add'),
+    path('trainer_list/<int:id>/edit', trainer_edit_view, name='trainer_edit'),
+    path('trainer_list/<int:id>/delete', trainer_delete_view, name='trainer_delete'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

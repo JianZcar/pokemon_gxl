@@ -534,15 +534,33 @@ footer {
 }
 
 /* Social Icons for footer */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
 
-.social-icons a {
-  color: white;
-  text-decoration: none;
-  /* Add other styling properties as needed */
-}
+  .social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    /* Add other styling properties as needed */
+    transition: 0.1s;
+  }
 
-/* Hover effect for the links */
-.social-icons a:hover {
-  color: #ffffff; /* Change color on hover if desired */
-  /* Add additional hover effects */
-}
+  /* Hover effect for the links */
+  .social-icons a:hover {
+    color: #ffffff; /* Change color on hover if desired */
+    /* Add additional hover effects */
+    text-shadow: 0px 2px black;
+    transition: 0.2s;
+  }
+
+  .social-icons a:hover i {
+    transition: 0.2s;
+  }
+
+  .social-icons a:hover i {
+    transform: translateY(-2px);
+    transition: transform 0.2s;
+  }
